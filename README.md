@@ -1,17 +1,14 @@
 程序范例汇总
 
-[数据库](Database)
 
-[Java应用程序](JavaApp)
+1.[数据库](Database)
 
-[JavaEE应用程序](JavaWebApp)
+2.[Java应用程序](JavaApp)
 
-<<<<<<< HEAD
-[Web程序](WebApp)
+3.[JavaEE应用程序](JavaWebApp)
 
-移动端程序
+4.[Web程序](WebApp)
 
-​	1. [Android程序](MobileApp/Android)
-=======
-[Web程序](WebApp)
->>>>>>> 4beb74db306aa04ea47fad513b5c98356cdec5b6
+5.移动端程序
+
+​	[Android程序](MobileApp/Android)
