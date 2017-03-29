@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery.js"></script>
+    <script>
+        $(document).ready(function () {
+
+
+            $('.list-side li').click(function () {
+                // 找出 li 中的超链接 href(#id)
+                /*var $this = $(this),
+                 _clickTab = $this.find('a').attr('target'); // 找到链接a中的targer的值
+                 $.get(_clickTab,function(data){
+                     alert(data);
+                    $("#iframe").load(data);
+                 });*/
+               /*var target_html = $(this).find('a').attr('target');
+                console.log(target_html);
+                $.get(target_html,function(data){
+                    $("#iframe").html(data);
+                });*/
+                var target_html = $(this).find('input').attr('type','hidden').val();
+                $("#iframe").load(target_html);
+            });
+
+        });
+    </script>
+</head>
+<body>
+
+<div style="float: left;background-color: green;">
+    <ul class="list-side">
+        　　
+        <li><a href="#">about</a><input type="hidden" value="a.html"></li>
+        　　
+        <li><a href="#" >news</a><input type="hidden" value="b.html"></li>
+        　　
+        <li><a href="#" >product</a><input type="hidden" value="c.html"></li>
+        　　
+        <li><a href="#" >contact</a><input type="hidden" value="d.html"></li>
+    </ul>
+</div>
+<div id="iframe" style="width: 50%;height: 100px; background-color: red;">
+    　　<!--jquery 插入html 位址-->
+</div>
+</body>
+</html>
