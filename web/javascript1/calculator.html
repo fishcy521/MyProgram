@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计算器</title>
+    <style>
+
+
+        table,td{
+            border:1px black solid;
+            margin:  0 auto ;
+        }
+
+        td{
+            width: 100px;
+        }
+        div{
+            width: 100%;
+        }
+
+        input[type=button]{
+            width: 100%;
+            background-color: yellow;
+
+        }
+
+
+    </style>
+    <script>
+        function btn_onclik(obj) {
+
+            var span_obj = document.getElementById("span_result");
+
+            // 获取当前span 标签中的数据
+            var tmpText = span_obj.innerHTML;
+
+            if (tmpText == 0) {
+                tmpText = "";
+            }
+
+            if (obj.id == "btnAdd"
+                ||obj.id == "btnSub"
+                ||obj.id == "btnMul"
+                ||obj.id == "btnDiv") {
+                if ((tmpText.indexOf("+") == -1)
+                    &&(tmpText.indexOf("-") == -1)
+                    &&(tmpText.indexOf("*") == -1)
+                    &&(tmpText.indexOf("/") == -1)) {
+
+                    // 把传入的对象的值与当前span中的值进行连接
+                    span_obj.innerHTML =tmpText+obj.value;
+                }
+            }
+            else if (obj.id == "btnEqual") {
+                span_obj.innerHTML=eval(tmpText);
+            }
+            else if (obj.id == "btnClear") {
+                span_obj.innerHTML=0;
+            }
+            else {
+                span_obj.innerHTML =tmpText+obj.value;
+            }
+        }
+
+        function btn_show(obj) {
+            var div_cal = document.getElementById("div_cal");
+
+            if (div_cal.style.display=="none") {
+                div_cal.style.display="block";
+                obj.value="消失";
+
+            }
+            else {
+                div_cal.style.display="none";
+                obj.value="显示";
+            }
+
+
+
+
+        }
+    </script>
+
+
+</head>
+<body>
+    <input type="button" id="btn_show" value="显示" onmouseover="btn_show(this);" ">
+    <div id="div_cal" style="display: none;">
+        <table>
+            <tr>
+                <td colspan="4" style="text-align: right"><span id="span_result">0</span></td>
+            </tr>
+            <tr>
+                <td><input type="button" id="btn7" name="btn7" value="7" onclick="btn_onclik(this);"></td>
+                <td><input type="button" id="btn8" name="btn8" value="8" onclick="btn_onclik(this);"></td>
+                <td><input type="button" id="btn9" name="btn7" value="9" onclick="btn_onclik(this);"></td>
+                <td><input type="button" id="btnAdd" name="btnAdd" value="+" onclick="btn_onclik(this);"></td>
+            </tr>
+            <tr>
+                <td><input type="button" id="btn4" name="btn4" value="4" onclick="btn_onclik(this);"></td>
+                <td><input type="button" id="btn5" name="btn5" value="5" onclick="btn_onclik(this);"></td>
+                <td><input type="button" id="btn6" name="btn6" value="6" onclick="btn_onclik(this);"></td>
+                <td><input type="button" id="btnSub" name="btnSub" value="-" onclick="btn_onclik(this);"</td>
+            </tr>
+            <tr>
+                <td><input type="button" id="btn1" name="btn1" value="1" onclick="btn_onclik(this);"></td>
+                <td><input type="button" id="btn2" name="btn2" value="2" onclick="btn_onclik(this);"></td>
+                <td><input type="button" id="btn3" name="btn3" value="3" onclick="btn_onclik(this);"></td>
+                <td><input type="button" id="btnMul" name="btnMul" value="*" onclick="btn_onclik(this);"></td>
+            </tr>
+            <tr>
+                <td><input type="button" id="btnPoint" name="btnPoint" value="." onclick="btn_onclik(this);"></td>
+                <td><input type="button" id="btn0" name="btn0" value="0" onclick="btn_onclik(this);"></td>
+                <td><input type="button" id="btnClear" name="btnClear" value="Clear" onclick="btn_onclik(this);"></td>
+                <td><input type="button" id="btnDiv" name="btnDiv" value="/" onclick="btn_onclik(this);"></td>
+            </tr>
+            <tr>
+                <td colspan="4"><input type="button" id="btnEqual" name="btnEqual" value="=" onclick="btn_onclik(this);"></td>
+            </tr>
+        </table>
+    </div>
+
+</body>
+</html>

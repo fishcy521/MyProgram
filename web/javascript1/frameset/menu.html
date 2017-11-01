@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!-- 引入css-->
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap-treeview.css" rel="stylesheet">
+
+    <!-- 引入js-->
+    <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+    <script src="js/bootstrap-treeview.js"></script>
+    <script>
+
+
+
+        $(function(){
+            $("#tree").treeview({data: getTree(),levels: 3,backColor: 'green',
+                onNodeSelected:function(event,data){
+
+                //alert(data.nodeId+"||"+data.nodeUrl)
+                window.top.content.location.href=data.nodeUrl;
+            }});
+
+            $("#btn").click(function (e) {
+
+                var arr = $('#tree').treeview('getSelected');
+
+                alert(JSON.stringify(arr));
+                for (var key in arr) {
+                    alert(arr[key].id);
+                }
+
+            })
+        });
+
+        function getTree() {
+            var tree = [
+                {
+                    text: "系统维护",
+                    nodes: [
+                        {
+                            text: "用户维护"/*,
+                            nodes: [
+                                {
+                                    text: "Grandchild 1"
+                                },
+                                {
+                                    text: "Grandchild 2"
+                                }
+                            ]*/,
+                            icon: "glyphicon glyphicon-stop",
+                            selectedIcon:"glyphicon glyphicon-play",
+                            nodeId:1,
+                            nodeUrl:"http://www.qq.com"
+                        },
+                        {
+                            text: "菜单维护",
+                            nodeId:2,
+                            nodeUrl:"http://www.baidu.com"
+                        },
+                        {
+                            text: "字典维护"
+                        }
+                    ]
+                },
+                {
+                    text: "练习项目",
+                    nodes:[
+                        {text:"新闻系统"},
+                        {text:"图书系统"},
+                        {text:"学生管理"},
+                        {text:"商品管理"},
+                    ]
+                }
+            ];
+            return tree;
+        }
+    </script>
+</head>
+<body>
+<input type="button" id="btn" value="查询" />
+    <div id="tree"></div>
+</body>
+</html>

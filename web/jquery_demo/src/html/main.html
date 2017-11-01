@@ -1,0 +1,43 @@
+<!DOCTYPE>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>main</title>
+    <style>
+        div{
+            margin:0;
+            border:0;
+            padding:0;
+
+            /*position: relative;*/
+        }
+    </style>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+    <script>
+        $(document).ready(function () {
+
+
+            $("#top").load("top.html",function () {
+
+            });
+
+            $("#menu").load("menu.html",function () {
+
+            });
+
+            $("#content").load("func1.html",function () {
+
+            });
+
+
+        });
+    </script>
+</head>
+<body>
+    <div>
+        <div id="top" style="background-color: green;width: 100%;"></div>
+        <div id="menu" style="background-color: yellow;width: 20%;float: left;"></div>
+        <div id="content" style="background-color:red;width: 80%;"></div>
+    </div>
+</body>
+</html>

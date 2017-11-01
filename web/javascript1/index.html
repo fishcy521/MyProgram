@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!--<script src="js/my.js"></script>-->
+    <script >
+
+        function test2() {
+            // 字符 数字 下滑线 $，数字不能开头
+            var p1 = 10;
+            var p2 = 3;
+
+            var result  = p1%p2;
+
+            result += 15; // result = result + 15
+
+            var comResult = result == 15;
+
+            var logReult = !(result == 16);
+
+            //  当问好前面是true时，三目运算返回冒号左边的值，当问号前面是falst事，返回冒号右边的值
+            var threeResult =  1>2? 23 : 24 ;
+            alert(threeResult);
+        }
+/*
+        function flow_test() {
+
+
+            // 当山峰没有棱角的时候，
+            var has_shan_lengjiao = false;
+
+            // 当河水不在流
+            var is_river_flow = false;
+
+            // 当时间停住日夜不分
+            var is_time_stop = true;
+
+            // 当天地万物化为虚有
+            var is_everything_none = true;
+
+
+            if (has_shan_lengjiao) {
+                alert("当山峰没有棱角的时候，我不能和你分手!");
+            }
+            else if (is_river_flow) {
+                alert("当河水不在流，我不能和你分手!");
+            }
+            else if(is_time_stop) {
+                alert("当时间停住日夜不分，我不能和你分手!");
+            }
+            else if (is_everything_none) {
+                alert("当天地万物化为虚有，我不能和你分手!");
+            }
+            else {
+                alert("那就算了吧。。。。。撒有哪啦");
+            }
+        }*/
+
+
+        function flow_test() {
+
+            var score=75;
+
+            var level = "D";
+
+            if (score >=90) {
+                level = 'A';
+            }
+            else if (score >= 70) {
+                level = 'B';
+            }
+            else if (score>=60) {
+                level = 'C';
+            }
+            else {
+                level = 'D';
+            }
+
+            switch (level) {
+                case 'A':
+
+                    alert("你是特优生");
+                    break;
+                case "B":
+
+                    alert("你是优等生");
+                    break;
+                case "C":
+                    alert("你是中等生");
+                    break;
+                default:
+                    alert("你挂科了，需要重修+补考");
+                    break;
+
+            }
+        }
+
+        function loop_test() {
+
+          // 求 1到100的和
+
+
+
+         var sum_num = 0;
+
+       /*  for(var index = 1; index <=100; index ++) {
+             sum_num += index;
+         }*/
+
+       var num = 0;
+       do{
+           num ++;
+
+           if (num > 5) {
+               break;
+           }
+           alert(num);
+       }while(false);
+          /*
+           var num = 1;
+          while  (true) {
+
+              if (num >100) {
+                  break;
+              }
+
+              if (num%2==1) {
+                  sum_num= sum_num + num;
+              }
+
+
+              num ++
+          }*/
+
+          //alert(sum_num)
+        }
+
+        function start_test() {
+
+            var start="";
+
+            var kg = "";
+
+            var line_count =15;
+            for (var line_num = 0;line_num<line_count;line_num++) {
+                for (var kg_num= line_count-1-line_num;kg_num>0;kg_num--) {
+                    kg = kg+ "&nbsp;";
+                }
+                for(var start_num = 0;start_num<2*line_num-1;start_num++) {
+                    start = start+"*";
+                }
+
+                document.write(kg+start+"<br/>");
+                kg="";
+                start="";
+            }
+        }
+
+        function str_test() {
+            var str = ["123","abc"];
+            alert(str[2]);
+        }
+
+        function win_open_test() {
+            window.open("calculator.html");
+        }
+
+        function jump_test() {
+            window.location.href="http://www.baidu.com";
+        }
+
+        function doc_test(obj) {
+            var sel_value = obj.value;
+
+            var btn_value = document.getElementById(sel_value).value;
+
+            document.getElementById("txt_content").value="您选择\""+btn_value+"\",这个按钮";
+        }
+    </script>
+</head>
+<body>
+
+    <input id="btn1" type="button" value="运算" onclick="test2()">
+    <input id="btn2" type="button" value="流程测试" onclick="flow_test() ">
+    <input id="btn3"type="button" value="循环测试" onclick="loop_test() ">
+    <input id="btn4"type="button" value="测试" onclick="start_test() ">
+    <input id="btn5"type="button" value="测试String" onclick="str_test();">
+    <input id="btn6" type="button" value="测试open" onclick="win_open_test();">
+    <input id="btn67" type="button" value="测试document" onclick="doc_test();">
+    <a href="http://www.qq.com"><input type="button" value="跳转" onclick="jump_test();"></a>
+    <a target="_blank" href="calculator.html">跳转</a>
+
+    <select id="sel" onchange="doc_test(this)">
+        <option value="btn1">运算</option>
+        <option value="btn2">流程测试</option>
+        <option value="btn3">循环测试</option>
+        <option value="btn4">测试</option>
+        <option value="btn5">测试String</option>
+    </select>
+
+    选择的按钮叫做：<input type="text" id="txt_content" value="">
+    <!--
+    <input type="button" value="测试1" onclick="test1(1)">
+    <input type="button" value="测试2" onclick="test1(2)">
+    <input type="button" value="测试3" onclick="test1(3)">
+    <input type="button" value="测试4" onclick="test1(4)">
+    <input type="button" value="测试5" onclick="test1(5)">-->
+</body>
+</html>

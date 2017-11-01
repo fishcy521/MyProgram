@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="webdemo1:war exploded">
+    <output-path>E:/develop/tomcat/apache-tomcat-8.5.8/webapps/webdemo1</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="webdemo1" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="webdemo1/web/Web" />
+    </root>
+  </artifact>
+</component>

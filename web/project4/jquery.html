@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        #sa{
+
+
+        }
+    </style>
+    <script src="js/jquery.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            $("#btn_1").click(function () {
+                var txt1 = $("input").get(1);
+                alert($(txt1).val());
+            });
+
+        });
+
+
+    </script>
+</head>
+<body>
+<input type="button" id="btn_1" value="测试" />
+<input type="text" value="文本域1" />
+<input type="text" value="文本域2" />
+<input type="text" value="文本域3" />
+<input type="text" value="文本域4" />
+<input type="text" value="文本域5" />
+
+<ul>
+    <li>Coffee</li>
+    <li>Milk</li>
+    <li>Soda</li>
+</ul>
+</body>
+</html>

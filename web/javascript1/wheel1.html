@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script type="text/javascript" src="http://www.shengshijinlan.com/js/jquery.js"></script>
+    <script type="text/javascript" src="http://www.shengshijinlan.com/js/jquery.SuperSlide.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+            $(".focus").hover(function(){
+                $(this).find(".focus_pre,.focus_next").stop(true, true).fadeTo("show", 1)
+            },function(){
+                $(this).find(".focus_pre,.focus_next").fadeOut()
+            });
+
+            $(".focus").slide({
+                titCell: ".slide_nav a ",
+                mainCell: ".bd ul",
+                delayTime: 2000,
+                interTime: 1000,
+                prevCell:".focus_pre",
+                nextCell:".focus_next",
+                effect: "fold",
+                autoPlay: true,
+                trigger: "click",
+                startFun:function(i){
+                    $(".focus_info").eq(i).find("h3").css("display","block").fadeTo(1000,1);
+                    $(".focus_info").eq(i).find(".text").css("display","block").fadeTo(1000,1);
+                }
+            });
+
+        });
+    </script>
+</head>
+<body>
+<div>
+    <div class="focus"><a href="javascript:;" class="focus_pre" title="上一张">上一张</a><a href="javascript:;" class="focus_next" title="下一张">下一张</a>
+        <div class="bd">
+            <ul>
+                <li><a href="" class="pic"><img src="http://www.shengshijinlan.com/uploads/aimages/2017/06/0dc31a0f8779f14baf98ee0d0ef36af1.jpg" alt="" width="1920" height="760" class="pic"></a></li>
+                <li><a href="" class="pic"><img src="http://www.shengshijinlan.com/uploads/aimages/2017/06/9543403037b873a5637252451de58110.jpg" alt="" width="1920" height="760" class="pic"></a></li>
+                <li><a href="#" class="pic"><img src="http://www.shengshijinlan.com/uploads/aimages/2017/03/2d0fc868fed56d3e5e32bb23b4d79257.jpg" alt="" width="1920" height="760" class="pic"></a></li>
+                <li><a href="#" class="pic"><img src="http://www.shengshijinlan.com/uploads/aimages/2017/03/7863efaf5c392d3e9d9b4b07f1a1203d.jpg" alt="" width="1920" height="760" class="pic"></a></li>
+                <li><a href="javascript:play('http://v.youku.com/v_show/id_XMjgxNjEwMjYxMg==.html?spm=a2h3j.8428770.3416059.1');" class="pic"><img src="http://www.shengshijinlan.com/uploads/aimages/2017/06/4b8d89964295ec6ee70f8d52623ccf9d.jpg" alt="" width="1920" height="760" class="pic"></a></li>
+            </ul>
+        </div>
+        <div class="slide_nav"> <a href="javascript:;"></a> <a href="javascript:;"></a> <a href="javascript:;"></a> <a href="javascript:;"></a> <a href="javascript:;"></a> </div>
+    </div>
+
+</div>
+<div>
+    <div class="focus"><a href="javascript:;" class="focus_pre" title="上一张">上一张</a><a href="javascript:;" class="focus_next" title="下一张">下一张</a>
+        <div class="bd">
+            <ul>
+                <li><a href="" class="pic"><img src="http://www.shengshijinlan.com/uploads/aimages/2017/06/0dc31a0f8779f14baf98ee0d0ef36af1.jpg" alt="" width="1920" height="760" class="pic"></a></li>
+                <li><a href="" class="pic"><img src="http://www.shengshijinlan.com/uploads/aimages/2017/06/9543403037b873a5637252451de58110.jpg" alt="" width="1920" height="760" class="pic"></a></li>
+                <li><a href="#" class="pic"><img src="http://www.shengshijinlan.com/uploads/aimages/2017/03/2d0fc868fed56d3e5e32bb23b4d79257.jpg" alt="" width="1920" height="760" class="pic"></a></li>
+                <li><a href="#" class="pic"><img src="http://www.shengshijinlan.com/uploads/aimages/2017/03/7863efaf5c392d3e9d9b4b07f1a1203d.jpg" alt="" width="1920" height="760" class="pic"></a></li>
+                <li><a href="javascript:play('http://v.youku.com/v_show/id_XMjgxNjEwMjYxMg==.html?spm=a2h3j.8428770.3416059.1');" class="pic"><img src="http://www.shengshijinlan.com/uploads/aimages/2017/06/4b8d89964295ec6ee70f8d52623ccf9d.jpg" alt="" width="1920" height="760" class="pic"></a></li>
+            </ul>
+        </div>
+        <div class="slide_nav"> <a href="javascript:;"></a> <a href="javascript:;"></a> <a href="javascript:;"></a> <a href="javascript:;"></a> <a href="javascript:;"></a> </div>
+    </div>
+
+</div>
+
+
+</body>
+</html>

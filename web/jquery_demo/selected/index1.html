@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            background-color: red;
+            height: 10px;
+            border: solid 2px yellow;
+        }
+    </style>
+    <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.js"></script>
+    <script>
+        $(document).ready(function () {
+            var obj = $(":checkbox");
+            obj.each(function (k,v) {
+                $(v).removeAttr('id');
+                alert(v.id);
+
+            });
+
+        });
+
+    </script>
+</head>
+<body>
+    <input type="checkbox"  name="chk" id="1"/>足球
+    <input type="checkbox" name="chk" id="2"/>篮球
+    <input type="checkbox"  name="chk" id="3"/>乒乓球
+    <input type="checkbox"  name="chk" id="4"/>排球
+    <input type="checkbox"  name="chk" id="5"/>保龄球
+
+    <div id="div1"></div>
+    <div id="div2"></div>
+    <div id="div3"></div>
+    <div id="div4"></div>
+    <div id="div5"></div>
+</body>
+</html>

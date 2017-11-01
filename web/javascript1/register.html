@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <style>
+
+        table,td{
+            border: 1px black solid;
+            margin: 0 auto;
+            width: 400px;
+        }
+        .title{
+            background-color: antiquewhite;
+            text-align: right;
+            font-weight: bold;
+            width: 20%;
+        }
+        .cotent{
+            text-align: left;
+            width: 40%;
+        }
+        .random{
+            background-color: chartreuse;
+            font-weight: bolder;
+            color: red;
+
+        }
+
+        input[type=text],input[type=password]{
+            width: 90%;
+        }
+    </style>
+    <script>
+
+        // 产生随机数字
+        function gen_random() {
+            var span_random_obj = document.getElementById("span_random");
+
+            var random_number = Math.round(Math.random()*9+9);
+
+            span_random_obj.innerText=random_number;
+        }
+        function body_onload() {
+            gen_random();
+        }
+    </script>
+</head>
+<body onload="body_onload();">
+    <div>
+        <table>
+            <tr>
+                <td class="title">用户名:</td>
+                <td class="cotent"><input type="text" id="user_name" name="user_naem" readonly></td>
+            </tr>
+            <tr>
+                <td class="title">密码:</td>
+                <td class="cotent"><input type="password" id="passwd" name="upasswd"></td>
+            </tr>
+            <tr>
+                <td class="title">确认密码:</td>
+                <td class="cotent"><input type="password" id="cofirm_passwd" name="cofirm_passwd"></td>
+            </tr>
+            <tr>
+                <td class="title">邮箱:</td>
+                <td class="cotent"><input type="text" id="mail" name="mail"></td>
+            </tr>
+            <tr>
+                <td class="title">生日:</td>
+                <td class="cotent"><input type="date" id="birthday" name="birthday"></td>
+            </tr>
+            <tr>
+                <td class="title">地址:</td>
+                <td class="cotent"><input type="text" id="address" name="address"></td>
+            </tr>
+            <tr>
+                <td class="title">备注:</td>
+                <td class="cotent"><textarea id="remakr"></textarea> </td>
+            </tr>
+            <tr>
+                <td class="title">验证码:</td>
+                <td class="cotent"><span id="span_random" class="random">1234</span></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+
+    </div>
+
+</body>
+</html>
