@@ -1,0 +1,7 @@
+IP：42.62.114.249
+端口号：2243
+数据库登录用户名：mysql
+密码：taoduoduomysql
+数据库 taoduoduo
+root
+kgyy+xljsb&aqllqtya

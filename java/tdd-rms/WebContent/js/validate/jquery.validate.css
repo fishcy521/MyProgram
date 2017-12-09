@@ -1,0 +1,9 @@
+label.error {
+	color: red;
+	font-weight: bold;
+	padding-left: 5px;
+}
+
+label.checked {
+	background: transparent url(/pms/js/validate/images/checked.gif) no-repeat scroll 0 0;
+}

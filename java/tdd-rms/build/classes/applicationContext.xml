@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd 
+	http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.0.xsd 
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd"
+	default-lazy-init="true">
+
+	<description>Spring公共配置</description>
+
+	<!-- 定义受环境影响易变的变量 -->
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
+		<property name="ignoreResourceNotFound" value="true" />
+		<property name="locations">
+			<list>
+				<!-- 标准配置 -->
+				<value>classpath*:/application.properties</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- 使用annotation 自动注册bean,并保证@Required,@Autowired的属性被注入 -->
+	<context:component-scan base-package="com.rms" />
+
+	<!-- 数据源配置 -->
+	<!-- <bean id="dataSourceOA" class="org.apache.commons.dbcp.BasicDataSource"> 
+		<property name="driverClassName" value="${jdbc.driver.oa}" /> <property name="url" 
+		value="${jdbc.url.oa}" /> <property name="username" value="${jdbc.username.oa}" 
+		/> <property name="password" value="${jdbc.password.oa}" /> </bean> -->
+
+	<!-- <bean id="dataSourceCupaa" class="org.apache.commons.dbcp.BasicDataSource"> 
+		<property name="driverClassName" value="${jdbc.driver.cupaa}" /> <property 
+		name="url" value="${jdbc.url.cupaa}" /> <property name="username" value="${jdbc.username.cupaa}" 
+		/> <property name="password" value="${jdbc.password.cupaa}" /> </bean> -->
+
+	<bean id="dataSourceTdd" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="${jdbc.driver.tdd}" />
+		<property name="url" value="${jdbc.url.tdd}" />
+		<property name="username" value="${jdbc.username.tdd}" />
+		<property name="password" value="${jdbc.password.tdd}" />
+	</bean>
+
+	<!-- alibaba -->
+	<bean name="dataSource_druid" class="com.alibaba.druid.pool.DruidDataSource"
+		init-method="init" destroy-method="close">
+		<property name="url" value="${jdbc.url.tdd}" />
+		<property name="username" value="${jdbc.username.tdd}" />
+		<property name="password" value="${jdbc.password.tdd}" />
+
+		<!-- 初始化连接大小 -->
+		<property name="initialSize" value="25" />
+		<!-- 连接池最大使用连接数量 -->
+		<property name="maxActive" value="1000" />
+		<!-- 连接池最小空闲 -->
+		<property name="minIdle" value="0" />
+		<!-- 获取连接最大等待时间 -->
+		<property name="maxWait" value="120000" />
+
+		<!-- <property name="poolPreparedStatements" value="true" /> <property 
+			name="maxPoolPreparedStatementPerConnectionSize" value="33" /> -->
+
+		<property name="validationQuery" value="${mysql.preferredTestQuery}" />
+		<property name="testOnBorrow" value="false" />
+		<property name="testOnReturn" value="false" />
+		<property name="testWhileIdle" value="true" />
+
+		<!-- 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒 -->
+		<property name="timeBetweenEvictionRunsMillis" value="60000" />
+		<!-- 配置一个连接在池中最小生存的时间，单位是毫秒 -->
+		<property name="minEvictableIdleTimeMillis" value="25200000" />
+
+		<!-- 打开removeAbandoned功能 -->
+		<property name="removeAbandoned" value="true" />
+		<!-- 1800秒，也就是30分钟 -->
+		<property name="removeAbandonedTimeout" value="1800" />
+		<!-- 关闭abanded连接时输出错误日志 -->
+		<property name="logAbandoned" value="true" />
+
+		<!-- 监控数据库 -->
+		<!-- <property name="filters" value="mergeStat" /> -->
+		<property name="filters" value="stat" />
+	</bean>
+
+	<bean id="dataSourceFacade" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="shutdown" />
+
+	<!-- Hibernate配置 -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource" ref="dataSource_druid" />
+		<property name="namingStrategy">
+			<bean class="org.hibernate.cfg.ImprovedNamingStrategy" />
+		</property>
+		<!--<property name="eventListeners"> <map> <entry key="pre-insert"><ref 
+			bean="myPreSaveOrUpdateListener"/></entry> <entry key="pre-update"><ref bean="myPreSaveOrUpdateListener"/></entry> 
+			<entry key="pre-delete"><ref bean="myPreSaveOrUpdateListener"/></entry> </map> 
+			</property> -->
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					${hibernate.dialect}
+				</prop>
+				<prop key="hibernate.show_sql">
+					${hibernate.show_sql}
+				</prop>
+				<prop key="hibernate.format_sql">
+					${hibernate.format_sql}
+				</prop>
+				<prop key="hibernate.use_sql_comments">
+					${hibernate.use_sql_comments}
+				</prop>
+				<!-- <prop key="hibernate.cache.provider_class"> org.hibernate.cache.EhCacheProvider 
+					</prop> -->
+				<!-- <prop key="hibernate.cache.provider_configuration_file_resource_path"> 
+					ehcache/ehcache-hibernate-local.xml </prop> -->
+				<!-- <prop key="hibernate.cache.use_query_cache">true</prop> -->
+			</props>
+		</property>
+		<property name="packagesToScan" value="com.rms.entity" />
+	</bean>
+
+	<bean id="springContextHolder" class="com.rms.modules.utils.spring.SpringContextHolder"
+		lazy-init="false" />
+
+	<!-- 事务管理器配置,单数据源事务 -->
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!-- 使用annotation定义事务 -->
+	<tx:annotation-driven transaction-manager="transactionManager"
+		proxy-target-class="true" />
+
+</beans>

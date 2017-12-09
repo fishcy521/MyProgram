@@ -1,0 +1,87 @@
+/* Main CSS Document */
+body {
+	font-size: 12px;
+	font-family: "����";
+	/*margin: 0 auto;*/
+}
+.mytable {
+	border-collapse: collapse;
+	width:100%;
+	border: 1px solid #C1DAD7;
+}
+.mytable td{
+	border: 1px solid #C1DAD7;
+	/*white-space: nowrap;*/
+}
+table.mytable td.main_title{
+	text-align:center;
+	font-size: 16px;
+	font-weight: bold;
+	height: 35px;
+}
+table.mytable td.left_title{
+	background: #D0EEF8;
+	text-align:left;
+	font-size: 14px;
+	font-weight: bold;
+	height: 20px;
+}
+table.mytable td.left_title2{
+	background: #f7f5d7;
+	text-align:left;
+	font-size: 14px;
+	font-weight: bold;
+	height: 20px;
+}
+table.mytable td.right_title{
+	background: #D0EEF8;
+	text-align:right;
+	font-size: 14px;
+	font-weight: bold;
+	height: 20px;
+}
+table.mytable td.table_title {
+	background: #E9F4F7;
+	font-weight: bold;
+	padding: 5px;
+	color: #000000;
+}
+table.mytable td.table_title_c {
+	background: #E9F4F7;
+	font-weight: bold;
+	text-align:center;
+	padding: 5px;
+	color: #000000;
+}
+
+table.mytable td.table_content {
+	text-align: left;
+	padding: 0 5px;
+	word-break:break-all;
+}
+table.mytable td.table_content_r {
+	text-align: right;
+	padding: 0 5px;
+	word-break:break-all;
+}
+/*0F5477*/
+input.rmsBtnClass {
+	border-width: 1px;
+	border-color: #c0c0c0;
+	height: 19px;
+	padding-left: 5px;
+	padding-right: 5px;
+	cursor: hand;
+	background-color:#27A0C9;
+	color:#FFFFFF;
+}
+
+.error,.success {border: 2px solid #ddd; }
+.error      { background: #FBE3E4; color: #8a1f11; border-color: #FBC2C4; }
+.success    { background: #E6EFC2; color: #264409; border-color: #C6D880; }
+
+.msgerror,.msgsuccess    { padding: .5em; margin-bottom: .5em; margin-top: .5em; border: 2px solid #ddd; }
+.msgerror      { background: #FBE3E4; color: #8a1f11; border-color: #FBC2C4; }
+.msgsuccess    { background: #E6EFC2; color: #264409; border-color: #C6D880; }
+.msgerror a    { color: #8a1f11; }
+.msgsuccess a  { color: #264409; }

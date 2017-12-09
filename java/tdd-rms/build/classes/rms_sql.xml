@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rms>
+    <sql id="interface_status">
+		<name>接口状态</name>
+		<value>
+		    <![CDATA[
+			    SELECT
+					tmp.i_id
+				FROM
+					(
+						SELECT
+							a.i_id,
+							CASE
+							WHEN (
+								SELECT
+									IFNULL(count(1), 0)
+								FROM
+									rms_interface_category_relation c
+								WHERE
+									c.i_id = a.i_id
+							) > 0 && a.i_has_param = 'y' && (
+								SELECT
+									IFNULL(count(1), 0)
+								FROM
+									rms_interface_param_relation b
+								WHERE
+									b.i_id = a.i_id
+							) > 0 THEN
+								'finished'
+							WHEN (
+								SELECT
+									IFNULL(count(1), 0)
+								FROM
+									rms_interface_category_relation c
+								WHERE
+									c.i_id = a.i_id
+							) > 0 && a.i_has_param = 'y' && (
+								SELECT
+									IFNULL(count(1), 0)
+								FROM
+									rms_interface_param_relation b
+								WHERE
+									b.i_id = a.i_id
+							) = 0 THEN
+								'unfinished'
+							WHEN (
+								SELECT
+									IFNULL(count(1), 0)
+								FROM
+									rms_interface_category_relation c
+								WHERE
+									c.i_id = a.i_id
+							) > 0 && a.i_has_param = 'n' THEN
+								'finished'
+							WHEN (
+								SELECT
+									IFNULL(count(1), 0)
+								FROM
+									rms_interface_category_relation c
+								WHERE
+									c.i_id = a.i_id
+							) = 0 THEN
+								'unfinished'
+						END interface_status
+						FROM
+							rms_interface a
+					) tmp
+					where 1=1 
+				]]> 
+ 		</value>
+	 </sql>
+	<sql id="TestSql">
+		<name>请拷贝此格式再修改</name>
+		<value>
+ 		</value>
+	 </sql>
+</rms>
